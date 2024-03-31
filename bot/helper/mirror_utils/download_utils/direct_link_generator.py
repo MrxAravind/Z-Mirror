@@ -761,7 +761,7 @@ def gofile(url):
             _password = ""
         _id = url.split("/")[-1]
     except Exception as e:
-        raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}")
+        raise DirectDownloadLinkException(f"ERROR:1 {e.__class__.__name__}")
 
     def __get_token(session):
         headers = {
@@ -842,7 +842,7 @@ def gofile(url):
         try:
             token = __get_token(session)
         except Exception as e:
-            raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}")
+            raise DirectDownloadLinkException(f"ERROR: 2{e.__class__.__name__}")
         details["header"] = f"Cookie: accountToken={token}"
         try:
             __fetch_links(session, _id)
