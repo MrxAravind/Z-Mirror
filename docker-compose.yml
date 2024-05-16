@@ -10,8 +10,8 @@ services:
       - 8388:8388/udp # Shadowsocks
     environment:
       - VPN_SERVICE_PROVIDER=protonvpn
-      - OPENVPN_USER=ZoC92GU80fVxADkt
-      - OPENVPN_PASSWORD=Tvmphf5FE2AuZMPAfH6EWRzZ7ILvaC6H
+      - OPENVPN_USER=TygCGI7fbDW7CLeq
+      - OPENVPN_PASSWORD=DeZFrobH0TdNJp1MzpaglEGCmYvbWfs4
       - SERVER_COUNTRIES=Japan
     restart: "unless-stopped"
   app:
