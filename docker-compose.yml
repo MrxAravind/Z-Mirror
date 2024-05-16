@@ -13,7 +13,7 @@ services:
       - OPENVPN_USER=ZoC92GU80fVxADkt
       - OPENVPN_PASSWORD=Tvmphf5FE2AuZMPAfH6EWRzZ7ILvaC6H
       - SERVER_COUNTRIES=Japan
-restart: "unless-stopped"
+    restart: "unless-stopped"
   app:
     container_name: z-mirror
     build:
