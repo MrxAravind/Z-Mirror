@@ -1,6 +1,20 @@
 version: "3.3"
-
 services:
+  vpn:
+    image: qmcgaw/gluetun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+    environment:
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - VPN_TYPE=wireguard
+      # Wireguard:
+      - WIREGUARD_PRIVATE_KEY=WGzQKJxCcZY0JqmVD5Hb98QoI3Sc3lVlzNRyxlqLo1U=
+      - WIREGUARD_ADDRESSES=193.148.16.2:51820
+    restart: "unless-stopped"
   app:
     container_name: z-mirror
     build:
@@ -8,6 +22,10 @@ services:
       dockerfile: Dockerfile
     command: bash start.sh
     restart: on-failure
+    network_mode: service:vpn
     ports:
       - "80:80"
       - "8080:8080"
+  networks:
+     mynetwork:                                 
+        external: true
