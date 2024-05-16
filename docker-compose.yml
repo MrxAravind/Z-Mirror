@@ -9,14 +9,11 @@ services:
       - 8388:8388/tcp # Shadowsocks
       - 8388:8388/udp # Shadowsocks
     environment:
-      - VPN_SERVICE_PROVIDER=custom
-      - VPN_TYPE=wireguard
-      - VPN_ENDPOINT_IP=193.148.16.2
-      - VPN_ENDPOINT_PORT=51820
-      - WIREGUARD_PUBLIC_KEY=5fFhuzIQPu8C4tySJuCJYg/13g75APFtMnqn3oeCpxk=
-      - WIREGUARD_PRIVATE_KEY=WGzQKJxCcZY0JqmVD5Hb98QoI3Sc3lVlzNRyxlqLo1U=
-      - WIREGUARD_ADDRESSES=0.0.0.0/0
-    restart: "unless-stopped"
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - OPENVPN_USER=ZoC92GU80fVxADkt
+      - OPENVPN_PASSWORD=Tvmphf5FE2AuZMPAfH6EWRzZ7ILvaC6H
+      - SERVER_COUNTRIES=Japan
+restart: "unless-stopped"
   app:
     container_name: z-mirror
     build:
