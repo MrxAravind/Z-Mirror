@@ -23,7 +23,3 @@ services:
     command: bash start.sh
     restart: on-failure
     network_mode: service:vpn
-    ports:
-      - "80:80"
-      - "8080:8080"
- 
